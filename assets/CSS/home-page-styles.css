@@ -54,22 +54,17 @@ body::before {
   border: 0.5rem solid #ffffff;
   width: calc(100% / 3 - 8%);
   height: 70vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  position: relative;
   transition: background-color 1s ease-in-out, filter 0.5s ease-in-out;
 }
 
-.s-card:nth-child(1) {
-  background: url('/assets/images/pic-sm-bg-01.jpg') no-repeat;
-}
-
-.s-card:nth-child(2) {
-  background-image: url('/assets/images/pic-sm-bg-02.jpg');
-}
-
-.s-card:nth-child(3) {
-  background: url('/assets/images/pic-sm-bg-03.jpg') no-repeat;
+.s-card__background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
 
 .s-card__image {
@@ -77,6 +72,17 @@ body::before {
   height: 100%;
   object-fit: contain;
   transition: 1s ease-in-out;
+  position: relative;
+}
+
+.s-card__title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  transition: bottom 1s ease-in-out;
 }
 
 .s-controller {
@@ -143,15 +149,19 @@ body::before {
 }
 
 /* Card hover animation */
-.s-card.s-card--hovered {
+.s-card--hovered .s-card__background {
   cursor: pointer;
-  background-image: none;
   background-color: rgba(0, 0, 0, .5);
+  opacity: 0;
 }
 
 .s-card--hovered .s-card__image {
   transform: scale(1.4);
   filter: drop-shadow(30px 10px 4px rgba(0, 0, 0, .5));
+}
+
+.s-card--hovered .s-card__title {
+  bottom: 50%;
 }
 
 body#spider-man-01-hovered::before {
