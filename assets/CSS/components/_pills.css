@@ -6,10 +6,11 @@
 
 .pills ul li{
   background-color: var(--primary-color);
-  color: white;
+  color: #ffffff;
   padding: 5px 15px;
   margin: 0 10px;
   border-radius: 20px;
+  text-transform: uppercase;
 }
 
 .pills ul li:first-child{
